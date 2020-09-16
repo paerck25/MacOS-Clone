@@ -1,0 +1,55 @@
+.browser-nav-main {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background-color: rgb(245, 245, 245);
+    padding-right: 19px;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.main-tools{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.main-tools > div {
+    width: 27px;
+    height: 27px;
+    margin: 2px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 32px;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.main-tools > .refresh {
+    line-height: 28px;
+}
+
+.main-tools > div:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.main-url{
+    width: 80%;
+}
+
+.url-input{
+    width: 100%;
+    border: none;
+    padding: 7px 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.url-input:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+.url-input:focus{
+    background-color: white;
+}

@@ -1,0 +1,88 @@
+.browser-nav-header {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background-color: rgba(0, 7, 100, 0.9);
+    padding-right: 19px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.tab-buttons{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    width: 55px;
+    height: inherit;
+}
+
+.tab-buttons > div{
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+}
+
+.tab-buttons > .close {
+    background-color: rgb(255, 56, 56);
+}
+
+.tab-buttons > .down {
+    background-color: rgb(255, 208, 0);
+}
+
+.tab-buttons > .minMax {
+    background-color: rgb(24, 219, 56);
+}
+
+.tab-buttons .icon{
+    text-align: center;
+    line-height: 16px;
+    font-size: smaller;
+    user-select: none;
+    visibility: hidden;
+}
+
+.tab-buttons > .close:hover > .icon {
+    visibility: visible;
+}
+
+.tab-buttons > .down:hover > .icon {
+    visibility: visible;
+}
+
+.tab-buttons > .minMax:hover > .icon {
+    visibility: visible;
+}
+
+
+.tab-list{
+    width: 100%;
+    height: inherit;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.tab-list > .tab{
+    width: 25%;
+    height: 33px;
+    border-radius: 5px 5px 0px 0px;
+    border-right: 1px solid black;
+    background-color: rgba(18, 216, 133, 0.904);
+}
+
+.tab-list > .tab:not(.clicked):hover{
+    background-color: rgba(12, 238, 144, 0.904);
+}
+
+.tab.clicked{
+    background-color : white;
+}
+
+.tab > .tab-content{
+    font-size: 14px;
+    color : black;
+    user-select: none;
+    padding: 9px;
+}
