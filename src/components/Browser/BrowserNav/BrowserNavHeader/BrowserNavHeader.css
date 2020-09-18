@@ -5,6 +5,7 @@
     background-color: rgba(0, 7, 100, 0.9);
     padding-right: 19px;
     border-radius: 5px 5px 0px 0px;
+    user-select: none;
 }
 
 .tab-buttons{
@@ -14,6 +15,7 @@
     padding-right: 10px;
     justify-content: space-between;
     width: 55px;
+    min-width: 55px;
     height: inherit;
 }
 
@@ -39,7 +41,6 @@
     text-align: center;
     line-height: 16px;
     font-size: smaller;
-    user-select: none;
     visibility: hidden;
 }
 
@@ -57,15 +58,23 @@
 
 
 .tab-list{
-    width: 100%;
     height: inherit;
     display: flex;
     align-items: flex-end;
     position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.tab-list::-webkit-scrollbar{
+    display: none;
 }
 
 .tab-list > .tab{
-    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
     height: 33px;
     border-radius: 5px 5px 0px 0px;
     border-right: 1px solid black;
@@ -77,12 +86,48 @@
 }
 
 .tab.clicked{
-    background-color : white;
+    background-color : rgb(245, 245, 245);
 }
 
 .tab > .tab-content{
     font-size: 14px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
     color : black;
-    user-select: none;
     padding: 9px;
+}
+
+.tab-close-icon{
+    font-size: 20px;
+    text-align: center;
+    line-height: 25px;
+    width: 21px;
+    height: 21px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    border-radius: 50%;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.tab-close-icon:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.add-tab{
+    font-size: 25px;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    line-height: 25px;
+    border-radius: 5px;
+    margin-top: 7px;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.877);
+    transition: all 0.3s;
+    min-width: 22px;
+}
+
+.add-tab:hover{
+    background-color: rgba(255, 255, 255, 0.2);
 }

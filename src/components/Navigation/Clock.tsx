@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useCallback} from 'react'
 
 type Now = {
     today : string;
@@ -18,25 +18,29 @@ const Clock: React.FC = () => {
         min : new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()+"",
     })
 
-    const {today, amPm, hour, min}:Now = clock;
+    const {today, amPm, hour, min} = clock;
 
-    const tiktok = () => {
-        const now:Date = new Date();
-        const rightNow:Now = {
-            today: daysOfWeek[now.getDay()],
-            amPm: now.getHours() > 12 ?  '오후' :  '오전',
-            hour: now.getHours() > 12 ?  now.getHours()-12+"" :  now.getHours()+"",
-            min: now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()+"",
+    const tiktok = useCallback(
+        () => {
+            const now:Date = new Date();
+            const rightNow:Now = {
+                today: daysOfWeek[now.getDay()],
+                amPm: now.getHours() > 12 ?  '오후' :  '오전',
+                hour: now.getHours() > 12 ?  now.getHours()-12+"" :  now.getHours()+"",
+                min: now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()+"",
+            }
+            setClock(rightNow);
         }
-        setClock(rightNow);
-    }
+    ,
+        [daysOfWeek],
+    )
 
     useEffect(() => {
         const startClock = setInterval(tiktok,1000);
         return () => {
             clearInterval(startClock);
         }
-    }, [])
+    }, [tiktok])
 
     return (
         <React.Fragment>

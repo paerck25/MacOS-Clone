@@ -13,10 +13,25 @@ nav{
     position: relative;
 }
 
+
 nav > div{
     display: inline-block;
     margin-right: 8px;
     padding: 3px 8px;
+}
+
+nav > .logo {
+    width: 40px;
+    height: inherit;
+    padding: 0px;
+    /* background-color: red; */
+}
+
+nav > .logo > .apple-icon {
+    width: 40px;
+    height: inherit;
+    background: url('../../assets/icons/apple-black.svg') center no-repeat;
+    /* background-color: blue; */
 }
 
 nav > .main{
@@ -28,9 +43,13 @@ nav > .clock{
 }
 
 
-.clicked{
+nav .clicked{
     background-color: rgb(22, 111, 245);
     color: white;
+}
+
+nav > .logo.clicked > .apple-icon {
+    background: url('../../assets/icons/apple-white.svg') center no-repeat;
 }
 
 /* nav */
@@ -46,6 +65,7 @@ nav > .clock{
     display: inline-block;
     list-style: none;
     border-radius: 0px 0px 5px 5px;
+    font-size: 15px;
 }
 
 .menu-list ul > li {

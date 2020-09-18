@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useBrowserState from '../../hooks/useBrowserState';
 import './Browser.css';
+import BrowserMain from './BrowserMain';
 import BrowserNav from './BrowserNav';
 
 const Browser = () => {
 
+    const { visible,fullscreen } = useBrowserState();
+
     return (
-        <div className="browser-root" draggable="true">
-            <BrowserNav />
+        <div className={"browser-root" + (visible ? "" : " close") + (fullscreen ? " fullscreen" : "")}>
+            <BrowserNav/>
+            <BrowserMain/>
         </div>
     )
 }

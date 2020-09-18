@@ -7,40 +7,49 @@ const Navigation: React.FC = () => {
 
     const [open, setOpen] = useState('')
 
-    const onClickOpen = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {;
-        const {className} = e.target as Element
-        setOpen(className);
+    const [menu, setMenu] = useState([{
+        class : 'logo',
+        child : <div className="apple-icon"></div>
+    }])
+
+    const [list, setList] = useState([{
+        class : 'logo',
+        list : ['이 Mac에 관하여','시스템 환경설정...','AppStore...','강제 종료','잠자기','재시동...','시스템 종료...','화면 잠금','로그아웃...']
+    }])
+
+    const onClickOpen = (thisClass:string) => {
+        setOpen(thisClass);
     }
 
     const onClickClose = () => {
         setOpen('');
     }
 
-    useEffect(()=>{
-        (document.querySelector('body') as Element).addEventListener('click',onClickClose);
+    useEffect(() => {
+        document.body.addEventListener('click',onClickClose);
         return () => {
-            (document.querySelector('body') as Element).removeEventListener('click',onClickClose);
+            document.body.removeEventListener('click',onClickClose);
         }
-    },[])
+    }, [])
+
+    const printMenu = menu.map((obj,index)=>{
+        return <div key={index} className={obj.class + (open === obj.class ? ' clicked' : '')} onClick={()=>{onClickOpen(obj.class)}}>{obj.child}</div>
+    })
+
+    const printList = list.map((obj,index)=>{
+        return (
+            <ul key={index} className={obj.class + (open === obj.class ? ' show-menu' : '')}>
+                {obj.list.map((obj,index)=>{
+                    return <li key={index}>{obj}</li>
+                })}
+            </ul>
+            )
+    })
 
     return (
         <div className="nav-root">
             <nav>
-                <div className={"logo" + (open === 'logo' ? ' clicked' : '')} onClick={onClickOpen}>
-                    로고
-                </div>
-                <div className={"main" + (open === 'main' ? ' clicked' : '')} onClick={onClickOpen}>
-                    메인
-                </div>
-                <div className={"sub1" + (open === 'sub1' ? ' clicked' : '')} onClick={onClickOpen}>
-                    서브1
-                </div>
-                <div className={"sub2" + (open === 'sub2' ? ' clicked' : '')} onClick={onClickOpen}>
-                    서브2
-                </div>
-                <div className={"sub3" + (open === 'sub3' ? ' clicked' : '')} onClick={onClickOpen}>
-                    서브3
-                </div>
+                {printMenu}
                 <div className="clock">
                     <Clock />
                 </div>
@@ -49,36 +58,7 @@ const Navigation: React.FC = () => {
                 </div>
             </nav >
             <div className="menu-list">
-                <ul className={"logo" + (open === 'logo' ? ' show-menu' : '')}>
-                    <li>1.하나123123</li>
-                    <li>1.하나123123</li>
-                    <li>1.하나123123</li>
-                    <li>1.하나123123</li>
-                </ul>
-                <ul className={"main" + (open === 'main' ? ' show-menu' : '')}>
-                    <li>1.main</li>
-                    <li>1.main1.main1.main1.main</li>
-                    <li>1.main</li>
-                    <li>1.main</li>
-                </ul>
-                <ul className={"sub1" + (open === 'sub1' ? ' show-menu' : '')}>
-                    <li>1.sub1</li>
-                    <li>1.sub1</li>
-                    <li>1.sub1</li>
-                    <li>1.sub1</li>
-                </ul>
-                <ul className={"sub2" + (open === 'sub2' ? ' show-menu' : '')}>
-                    <li>1.sub2</li>
-                    <li>1.sub2</li>
-                    <li>1.sub2</li>
-                    <li>1.sub2</li>
-                </ul>
-                <ul className={"sub3" + (open === 'sub3' ? ' show-menu' : '')}>
-                    <li>1.sub3</li>
-                    <li>1.sub3</li>
-                    <li>1.sub3</li>
-                    <li>1.sub3</li>
-                </ul>
+                {printList}
             </div>
         </div>
 

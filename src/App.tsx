@@ -3,7 +3,7 @@ import Navigation from './components/Navigation';
 import BottomMenu from './components/BottomMenu';
 import Browser from './components/Browser';
 
-function App(){
+const App = () => {
 
     return(
         <div>

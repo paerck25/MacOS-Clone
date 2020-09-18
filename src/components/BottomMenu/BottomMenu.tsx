@@ -1,7 +1,13 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import whale from '../../assets/icons/whale.png';
+import github from '../../assets/icons/github-icon.png';
+import reactLogo from '../../assets/icons/logo.svg';
 import './BottomMenu.css';
+import useBrowserState from '../../hooks/useBrowserState';
 
 const BottomMenu: React.FC = () => {
+
+    const { openBrowser } = useBrowserState();
 
     const [hover, setHover] = useState(false);
 
@@ -15,24 +21,26 @@ const BottomMenu: React.FC = () => {
 
     return (
         <div className="bottom-menu-root">
-            <div className={hover ? "bottom-menu-container hover" : "bottom-menu-container"}>
-                <div className="bottom-menu-icon">
-                    아이콘1
-                </div>
-                <div className="bottom-menu-icon">
-                    아이콘2
-                </div>
-                <div className="bottom-menu-icon">
-                    아이콘3
-                </div>
-                <div className="bottom-menu-icon">
-                    아이콘4
-                </div>
-                <div className="bottom-menu-icon">
-                    아이콘5
+            <div className="bottom-menu-wrap">
+                <div className={hover ? "bottom-menu-container hover" : "bottom-menu-container"}>
+                    <div className="bottom-menu-icon">
+                        <img src={whale} alt="whale" onClick={openBrowser} />
+                    </div>
+                    <div className="bottom-menu-icon">
+                        <img src={github} alt="github" />
+                    </div>
+                    <div className="bottom-menu-icon">
+                        <img src={reactLogo} alt="reactLogo" />
+                    </div>
+                    <div className="bottom-menu-icon">
+                        아이콘4
+                    </div>
+                    <div className="bottom-menu-icon">
+                        아이콘5
+                    </div>
                 </div>
             </div>
-            <div className="wrap" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <div className="touch-line" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             </div>
         </div>
     )
