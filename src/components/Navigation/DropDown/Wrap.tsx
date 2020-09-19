@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './DropDown.css';
+import React, { useState, useEffect, ReactNode } from 'react';
 
 type propsType = {
     name: string;
-
+    children: ReactNode;
 }
 
-const DropDown = () => {
+const DropDown = ({name,children}:propsType) => {
 
     const [open, setOpen] = useState(false);
 
@@ -28,16 +27,13 @@ const DropDown = () => {
     return (
         <div className="dropdown">
             <button className="dropdown-btn" onClick={onClickOpen}>
-                버튼
+                {name}
             </button>
             {
                 open
                     ?
                     <ul className="dropdown-list">
-                        <li>list1</li>
-                        <li>list2</li>
-                        <li>list3</li>
-                        <li>list4</li>
+                        {children}
                     </ul>
                     :
                     null
@@ -46,4 +42,4 @@ const DropDown = () => {
     )
 }
 
-export default DropDown
+export default DropDown;

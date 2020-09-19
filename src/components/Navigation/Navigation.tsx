@@ -47,17 +47,24 @@ const Navigation: React.FC = () => {
             )
     })
 
+    function fuck(){
+        console.log('fuck');
+    }
+
     return (
         <div className="nav-root">
             <nav>
                 {printMenu}
-                <DropDown/>
-                <DropDown/>
-                <DropDown/>
+                <DropDown.Wrap name="메뉴1">
+                    <DropDown.Item onClick={fuck}>시발1</DropDown.Item>
+                    <DropDown.Item className="fuck" onClick={()=>{console.log('시발2')}}>시발2</DropDown.Item>
+                    <DropDown.Item onClick={()=>{console.log('시발3')}}>시발3</DropDown.Item>
+                    <DropDown.Item onClick={()=>{console.log('시발4')}}>시발4</DropDown.Item>
+                </DropDown.Wrap>
                 <div className="clock">
                     <Clock />
                 </div>
-                <div className="menuIcon">
+                <div className="menuIcon" onClick={fuck}>
                     아이콘
                 </div>
             </nav >
