@@ -29,19 +29,17 @@
     border-radius: 7px 7px 0px 0px;
     overflow: hidden;
     visibility: hidden;
-    transition: height 0.5s, visibility 0.55s, overflow 0.55s 0.55s;
+    transition: height 0.5s, visibility 0.55s;
 }
 
 .bottom-menu-container:hover{
     visibility: visible;
-    overflow: visible;
     height: 75px;
 }
 
 
 .bottom-menu-container.hover{
     visibility: visible;
-    overflow: visible;
     height: 75px;
 }
 

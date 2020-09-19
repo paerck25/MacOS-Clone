@@ -1,0 +1,36 @@
+.dropdown{
+    height: inherit;
+}
+
+.dropdown-btn{
+    display: block;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    height: inherit;
+    padding: 0px 10px;
+}
+
+.dropdown-btn:focus{
+    background-color: rgb(22, 111, 245);
+    color: white;
+}
+
+.dropdown-list{
+    background-color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    list-style: none;
+    border-radius: 0px 0px 4px 4px;
+    font-size: 15px;
+    position: absolute;
+}
+
+.dropdown-list > li {
+    padding: 5px 20px;
+}
+
+.dropdown-list > li:hover{
+    background-color: rgb(22, 111, 245);
+    color: white;
+}
+

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Clock from './Clock';
+import DropDown from './DropDown';
 import './Navigation.css';
 
 
@@ -50,6 +51,9 @@ const Navigation: React.FC = () => {
         <div className="nav-root">
             <nav>
                 {printMenu}
+                <DropDown/>
+                <DropDown/>
+                <DropDown/>
                 <div className="clock">
                     <Clock />
                 </div>
