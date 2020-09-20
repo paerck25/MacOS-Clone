@@ -1,32 +1,37 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode, useRef } from 'react';
 
 type propsType = {
     name: string;
     children: ReactNode;
 }
 
-const DropDown = ({name,children}:propsType) => {
+const DropDown = ({ name, children }: propsType) => {
 
     const [open, setOpen] = useState(false);
 
+    const ref = useRef(null);
+
     const onClickOpen = () => {
-        setOpen(true);
+        setOpen(!open);
     }
 
-    const onClickClose = () => {
-        setOpen(false);
+    const onClickClose = (event: MouseEvent) => {
+        if ((event.target as Element) !== ref.current) {
+            setOpen(false);
+        }
     }
 
     useEffect(() => {
-        document.body.addEventListener('click', onClickClose);
+        window.addEventListener('click',onClickClose);
         return () => {
-            document.body.removeEventListener('click', onClickClose);
+            window.removeEventListener('click', onClickClose);
         }
     }, [])
 
+
     return (
         <div className="dropdown">
-            <button className="dropdown-btn" onClick={onClickOpen}>
+            <button ref={ref} className={"dropdown-btn" + (open ? ' clicked' : '')} onClick={onClickOpen}>
                 {name}
             </button>
             {

@@ -43,9 +43,9 @@ const Clock: React.FC = () => {
     }, [tiktok])
 
     return (
-        <React.Fragment>
+        <div className="clock">
             ({today}) {amPm} {hour}:{min}
-        </React.Fragment>
+        </div>
     )
 }
 

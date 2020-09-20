@@ -6,8 +6,8 @@ type propsType = {
     onClick : () => void;
 }
 
-const Item = ({children, ...props}:propsType) => {
-    console.log(props);
+const Item = ({children,...props}:propsType) => {
+
     return (
         <li {...props}>{children}</li>
     )

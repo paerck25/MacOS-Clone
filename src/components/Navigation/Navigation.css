@@ -1,7 +1,3 @@
-.nav-root{
-    user-select: none;
-}
-
 nav{
     display: flex;
     align-items: center;
@@ -10,104 +6,18 @@ nav{
     padding-left: 19px;
     padding-right: 19px;
     font-size: 15px;
+    user-select: none;
     position: relative;
 }
 
-
-nav > div{
-    display: inline-block;
-    margin-right: 8px;
-    padding: 3px 8px;
-}
-
-nav > .logo {
-    width: 40px;
-    height: inherit;
-    padding: 0px;
-    /* background-color: red; */
-}
-
-nav > .logo > .apple-icon {
-    width: 40px;
-    height: inherit;
-    background: url('../../assets/icons/apple-black.svg') center no-repeat;
-    /* background-color: blue; */
-}
-
-nav > .main{
-    font-weight: 600;
-}
-
-nav > .clock{
+nav > .clock {
     margin-left: auto;
 }
 
-
-nav .clicked{
-    background-color: rgb(22, 111, 245);
-    color: white;
+nav.fullscreen{
+    display: none;
 }
 
-nav > .logo.clicked > .apple-icon {
-    background: url('../../assets/icons/apple-white.svg') center no-repeat;
-}
-
-/* nav */
-
-
-.menu-list{
-    position: relative;
-    top: 1px;
-}
-
-.menu-list ul{
-    background-color: rgba(255, 255, 255, 0.5);
-    display: inline-block;
-    list-style: none;
-    border-radius: 0px 0px 5px 5px;
-    font-size: 15px;
-}
-
-.menu-list ul > li {
-    padding: 5px 20px;
-}
-
-.menu-list ul > li:hover{
-    background-color: rgb(22, 111, 245);
-    color: white;
-}
-
-.menu-list > .logo{
-    visibility: hidden;
-    position: absolute;
-    left: 20px;
-}
-
-.menu-list > .main{
-    visibility: hidden;
-    position: absolute;
-    left: 70px;
-}
-
-.menu-list > .sub1{
-    visibility: hidden;
-    position: absolute;
-    left: 120px;
-}
-
-.menu-list > .sub2{
-    visibility: hidden;
-    position: absolute;
-    left: 175px;
-}
-
-.menu-list > .sub3{
-    visibility: hidden;
-    position: absolute;
-    left: 233px;
-}
-
-
-.menu-list .show-menu {
-    visibility: visible;
+nav.fullscreen:hover{
+    display: flex;
 }
