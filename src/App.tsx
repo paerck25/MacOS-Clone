@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from './components/Navigation';
 import BottomMenu from './components/BottomMenu';
 import Browser from './components/Browser';
+import BootingPage from './components/BootingPage';
+import LoginPage from './components/LoginPage';
 
 const App = () => {
 
-    return(
+    const [isBoot, setIsBoot] = useState(false);
+
+    const bootComplete = () => {
+        setIsBoot(true);
+    }
+
+    useEffect(()=>{
+        setTimeout(bootComplete,5000)
+    },[])
+
+    return (
         <div>
-            <Navigation/>
-            <Browser/>
-            <BottomMenu/>
+            {isBoot 
+                ?
+                // <> 
+                // <Navigation/>
+                // <Browser/>
+                // <BottomMenu/>
+                // </>
+                <LoginPage/>
+                :
+                <BootingPage />
+            }
         </div>
     )
 }

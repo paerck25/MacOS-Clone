@@ -49,6 +49,11 @@ const BrowserNavHeader = () => {
         )
     }
 
+    const onClickCloseBrowser = () => {
+        closeBrowser();
+        minBrowser();
+    }
+
     useEffect(() => {
         if (tabs.length === 0) {
             closeBrowser();
@@ -68,7 +73,7 @@ const BrowserNavHeader = () => {
     return (
         <header className="browser-nav-header">
             <div className="tab-buttons">
-                <div className="close" onClick={closeBrowser}>
+                <div className="close" onClick={onClickCloseBrowser}>
                     <div className="icon">×</div>
                 </div>
                 <div className="down">

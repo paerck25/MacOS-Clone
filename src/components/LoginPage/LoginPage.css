@@ -1,0 +1,28 @@
+.login{
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 10%;
+}
+
+.login img{
+    display: block;
+    margin: 1% auto;
+    border-radius: 50%;
+}
+
+.login p{
+    margin-bottom: 1.5%;
+}
+
+.login input{
+    border: none;
+    background-color: darkgray;
+    outline: none;
+    max-height: 1rem;
+    max-width: 160px;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 1.2rem;
+    color: rgb(88, 88, 88);
+}
