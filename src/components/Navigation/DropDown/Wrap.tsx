@@ -1,11 +1,12 @@
 import React, { useState, useEffect, ReactNode, useRef } from 'react';
 
 type propsType = {
-    name: string;
+    icon?: boolean;
+    name?: ReactNode;
     children: ReactNode;
 }
 
-const DropDown = ({ name, children }: propsType) => {
+const DropDown = ({ name, icon, children }: propsType) => {
 
     const [open, setOpen] = useState(false);
 
@@ -22,7 +23,7 @@ const DropDown = ({ name, children }: propsType) => {
     }
 
     useEffect(() => {
-        window.addEventListener('click',onClickClose);
+        window.addEventListener('click', onClickClose);
         return () => {
             window.removeEventListener('click', onClickClose);
         }
@@ -31,9 +32,17 @@ const DropDown = ({ name, children }: propsType) => {
 
     return (
         <div className="dropdown">
-            <button ref={ref} className={"dropdown-btn" + (open ? ' clicked' : '')} onClick={onClickOpen}>
-                {name}
-            </button>
+            {icon ?
+                <button 
+                ref={ref} 
+                className={"dropdown-icon-btn" + (open ? ' clicked' : '')} 
+                onClick={onClickOpen} 
+                />
+                :
+                <button ref={ref} className={"dropdown-btn" + (open ? ' clicked' : '')} onClick={onClickOpen}>
+                    {name}
+                </button>
+            }
             {
                 open
                     ?

@@ -17,7 +17,3 @@ nav > .clock {
 nav.fullscreen{
     display: none;
 }
-
-nav.fullscreen:hover{
-    display: flex;
-}
