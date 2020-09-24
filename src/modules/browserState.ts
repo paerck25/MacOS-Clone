@@ -22,19 +22,22 @@ export const browser_maximize = () => ({ type: BROWSER_MAXIMIZE });
 
 const initialState: BrowserState = {
   visible: false,
-  fullscreen: false
+  fullscreen: false,
 };
 
 const stateReducer = (state: BrowserState = initialState, action: BrowserAction) => {
-  switch (action.type) {
+
+  const { type } = action;
+
+  switch (type) {
     case BROWSER_OPEN:
-      return { ...state,visible: true };
+      return { ...state, visible: true };
     case BROWSER_CLOSE:
-      return { ...state,visible: false };
+      return { ...state, visible: false };
     case BROWSER_MINIMIZE:
-      return { ...state,fullscreen: false };
+      return { ...state, fullscreen: false };
     case BROWSER_MAXIMIZE:
-      return { ...state,fullscreen: true };
+      return { ...state, fullscreen: true };
     default:
       return state;
   }

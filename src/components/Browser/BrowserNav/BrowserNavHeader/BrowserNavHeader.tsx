@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import useBrowserState from '../../../../hooks/useBrowserState';
+import useDraggable from '../../../../hooks/useDraggable';
 import './BrowserNavHeader.css';
 
 type tab = {
@@ -18,7 +19,9 @@ const BrowserNavHeader = () => {
         }
     ]);
 
-    const { closeBrowser,minBrowser,maxBrowser,fullscreen } = useBrowserState();
+    const { closeBrowser, minBrowser, maxBrowser, fullscreen } = useBrowserState();
+
+    const { moveElement,dragStart,onDragging } = useDraggable();
 
     const onClickSelectTab = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const { dataset, className } = e.target as HTMLElement;
@@ -38,7 +41,7 @@ const BrowserNavHeader = () => {
                 newTab
             ])
         }
-        ,[tabs])
+        , [tabs])
 
     const onClickCloseTab = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const { dataset } = (e.target as HTMLElement)
@@ -57,9 +60,10 @@ const BrowserNavHeader = () => {
     useEffect(() => {
         if (tabs.length === 0) {
             closeBrowser();
+            minBrowser();
             onClickAddNewTab();
         }
-    }, [tabs,closeBrowser,onClickAddNewTab])
+    }, [tabs, closeBrowser, onClickAddNewTab,minBrowser])
 
     const printTabs = tabs.map((obj, index) => {
         return (
@@ -71,7 +75,7 @@ const BrowserNavHeader = () => {
     })
 
     return (
-        <header className="browser-nav-header">
+        <div draggable onDragStart={dragStart} onDrag={onDragging} className="browser-nav-header">
             <div className="tab-buttons">
                 <div className="close" onClick={onClickCloseBrowser}>
                     <div className="icon">×</div>
@@ -87,7 +91,7 @@ const BrowserNavHeader = () => {
                 {printTabs}
             </div>
             <div className="add-tab" onClick={onClickAddNewTab}>+</div>
-        </header>
+        </div>
     )
 }
 
