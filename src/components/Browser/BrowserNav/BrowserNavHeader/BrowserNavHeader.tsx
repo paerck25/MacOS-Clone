@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import useBrowserState from '../../../../hooks/useBrowserState';
-import useDraggable from '../../../../hooks/useDraggable';
 import './BrowserNavHeader.css';
 
 type tab = {
@@ -20,8 +19,6 @@ const BrowserNavHeader = () => {
     ]);
 
     const { closeBrowser, minBrowser, maxBrowser, fullscreen } = useBrowserState();
-
-    const { moveElement,dragStart,onDragging } = useDraggable();
 
     const onClickSelectTab = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const { dataset, className } = e.target as HTMLElement;
@@ -75,7 +72,7 @@ const BrowserNavHeader = () => {
     })
 
     return (
-        <div draggable onDragStart={dragStart} onDrag={onDragging} className="browser-nav-header">
+        <div className="browser-nav-header">
             <div className="tab-buttons">
                 <div className="close" onClick={onClickCloseBrowser}>
                     <div className="icon">×</div>

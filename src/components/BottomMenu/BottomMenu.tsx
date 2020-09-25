@@ -4,10 +4,12 @@ import github from '../../assets/icons/github-icon.png';
 import reactLogo from '../../assets/icons/logo.svg';
 import './BottomMenu.css';
 import useBrowserState from '../../hooks/useBrowserState';
+import useMemoState from '../../hooks/useMemoState';
 
 const BottomMenu: React.FC = () => {
 
     const { openBrowser } = useBrowserState();
+    const { openMemo } = useMemoState();
 
     const [hover, setHover] = useState(false);
 
@@ -27,7 +29,7 @@ const BottomMenu: React.FC = () => {
                         <img src={whale} alt="whale" onClick={openBrowser} />
                     </div>
                     <div className="bottom-menu-icon">
-                        <img src={github} alt="github" />
+                        <img src={github} alt="github" onClick={openMemo} />
                     </div>
                     <div className="bottom-menu-icon">
                         <img src={reactLogo} alt="reactLogo" />

@@ -1,4 +1,4 @@
-.browser-root {
+.memo {
     display: inline-block;
     position: absolute;
     width: 50%;
@@ -12,11 +12,11 @@
     transition: all 0.2s;
 }
 
-.browser-root.close {
+.memo.close {
     display: none;
 }
 
-.browser-root.fullscreen {
+.memo.fullscreen {
     top: 0px;
     left: 0px;
     width: 100%;

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import browserState from './browserState';
+import memoState from './memoState';
 
 const rootReducer = combineReducers({
-  browserState
+  browserState,
+  memoState
 });
 
 export default rootReducer;

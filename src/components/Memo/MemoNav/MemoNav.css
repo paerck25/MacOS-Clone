@@ -1,0 +1,57 @@
+.memo-nav {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background-color: rgba(0, 7, 100, 0.9);
+    padding-right: 19px;
+    border-radius: 5px 5px 0px 0px;
+    user-select: none;
+}
+
+.memo-nav-buttons{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    width: 55px;
+    min-width: 55px;
+    height: inherit;
+}
+
+.memo-nav-buttons > div{
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+}
+
+.memo-nav-buttons > .close {
+    background-color: rgb(255, 56, 56);
+}
+
+.memo-nav-buttons > .down {
+    background-color: rgb(255, 208, 0);
+}
+
+.memo-nav-buttons > .minMax {
+    background-color: rgb(24, 219, 56);
+}
+
+.memo-nav-buttons .icon{
+    text-align: center;
+    line-height: 16px;
+    font-size: smaller;
+    visibility: hidden;
+}
+
+.memo-nav-buttons > .close:hover > .icon {
+    visibility: visible;
+}
+
+.memo-nav-buttons > .down:hover > .icon {
+    visibility: visible;
+}
+
+.memo-nav-buttons > .minMax:hover > .icon {
+    visibility: visible;
+}
