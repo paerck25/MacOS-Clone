@@ -1,0 +1,13 @@
+.memo-text{
+    height: inherit;
+}
+
+.memo-text textarea{
+    max-width: 100%;
+    width: 94%;
+    height: 100%;
+    padding: 40px 20px;
+    border: none;
+    outline: none;
+    resize: none;
+}

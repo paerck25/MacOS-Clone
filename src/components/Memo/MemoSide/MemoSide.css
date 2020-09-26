@@ -1,0 +1,18 @@
+.memo-side{
+    list-style: none;
+    text-align: center;
+    height: 100%;
+    padding: 5px;
+    border-right: 1px solid lightgrey;
+    overflow: auto;
+}
+
+.memo-side > li{
+    padding: 15px 10px;
+    border-bottom: 1px solid lightgrey;
+    max-width: 300px;
+    max-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

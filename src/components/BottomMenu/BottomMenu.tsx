@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import whale from '../../assets/icons/whale.png';
 import github from '../../assets/icons/github-icon.png';
+import memo from '../../assets/icons/memo.png';
 import reactLogo from '../../assets/icons/logo.svg';
 import './BottomMenu.css';
 import useBrowserState from '../../hooks/useBrowserState';
@@ -29,7 +30,7 @@ const BottomMenu: React.FC = () => {
                         <img src={whale} alt="whale" onClick={openBrowser} />
                     </div>
                     <div className="bottom-menu-icon">
-                        <img src={github} alt="github" onClick={openMemo} />
+                        <img src={memo} alt="github" onClick={openMemo} width="40px" height="40px" />
                     </div>
                     <div className="bottom-menu-icon">
                         <img src={reactLogo} alt="reactLogo" />

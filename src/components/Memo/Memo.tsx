@@ -2,6 +2,8 @@ import React from 'react';
 import useMemoState from '../../hooks/useMemoState';
 import './Memo.css';
 import MemoNav from './MemoNav';
+import MemoSide from './MemoSide';
+import MemoTextField from './MemoTextField';
 
 const Memo = () => {
 
@@ -9,7 +11,11 @@ const Memo = () => {
 
     return (
         <div className={"memo" + (visible ? "" : " close") + (fullscreen ? " fullscreen" : "")}>
-          <MemoNav/>
+            <MemoNav />
+            <div className="grid">
+                <MemoSide />
+                <MemoTextField />
+            </div>
         </div>
     )
 }

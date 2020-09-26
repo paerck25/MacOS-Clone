@@ -1,15 +1,16 @@
 .memo {
     display: inline-block;
     position: absolute;
-    width: 50%;
-    height: 500px;
+    width: 1000px;
+    height: 700px;
     max-width: 100%;
     background-color: white;
     border-radius: 5px;
     border: 1px solid rgba(0, 7, 100, 0.5);
     top: 20px;
-    left: 200px;
+    left: 300px;
     transition: all 0.2s;
+    overflow: hidden;
 }
 
 .memo.close {
@@ -21,4 +22,10 @@
     left: 0px;
     width: 100%;
     height: 100vh;
+}
+
+.memo .grid{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    height: 91%;
 }
